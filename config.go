@@ -23,6 +23,7 @@ func newConfig(configName string) (*config, error) {
 	for {
 		line, err := reader.ReadString('\n')
 		line = strings.TrimSuffix(line, "\n")
+		line = strings.TrimSuffix(line, "\r")
 		str := strings.SplitN(line, "=", 2)
 		switch str[0] {
 		case "tracker_server":
